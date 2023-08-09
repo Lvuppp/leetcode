@@ -15,7 +15,7 @@ public:
             nums[i - offset] = nums[i];
         }
 
-        return offset;
+        return nums.size() - offset;
     }
 };
 
