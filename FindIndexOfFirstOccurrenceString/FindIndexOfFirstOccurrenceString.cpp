@@ -13,17 +13,15 @@ public:
             return -1;
 
         while (i < haystack.size()) {
-            while (needle[j] == haystack[i]) {
+            while (needle[j] == haystack[i + j]) {
                 if (j == needle.size() - 1) {
-                    return i + 1 - needle.size();
+                    return i;
                 }
                 j++;
-                i++;
             }
             j = 0;
             i++;
         }
-
         return -1;
     }
 };
@@ -32,5 +30,6 @@ public:
 int main()
 {
     Solution s;
-    s.strStr("mississippi", "issip");
+    cout << s.strStr("mississippi", "issip");
+    cout << s.strStr("sssi", "si");
 }
