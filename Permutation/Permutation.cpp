@@ -13,15 +13,16 @@ public:
         {
             heap_permuation(nums, k - 1);
             if (k & 1) {
-                    
+                swap(nums[0], nums[k - 1]);
             }
             else {
-
+                swap(nums[i], nums[k - 1]);
             }
         }
     }
 
     vector<vector<int>> permute(vector<int>& nums) {
+        heap_permuation(nums, nums.size());
         return permutations;
     }
 
