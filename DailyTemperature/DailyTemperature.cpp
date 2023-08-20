@@ -2,19 +2,35 @@
 //
 
 #include <iostream>
+#include<stack>
+#include <vector>
+using namespace std;
+
+
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        stack<pair<int,int>> dif;
+        vector<int> answer(temperatures.size(), 0);
+        int j = 0;
+
+        for (int i = 0; i < temperatures.size(); i++) {
+            while (!dif.empty() && dif.top().first < temperatures[i]) {
+                answer[dif.top().second] = i - dif.top().second;
+                dif.pop();
+            }
+            dif.push(make_pair(temperatures[i], i));
+        }
+        return answer;
+    }
+};
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    vector<int> vec{73, 74, 75, 71, 69, 72, 76, 73};
+    Solution s;
+    for (auto a : s.dailyTemperatures(vec)) {
+        cout << a << " ";
+    }
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
