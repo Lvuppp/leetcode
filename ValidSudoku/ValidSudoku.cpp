@@ -24,9 +24,9 @@ public:
             for (short j = col * 3; j < (col + 1) * 3; j++) {
 
                 if (isdigit(board[i][j])) {
-                    nums[board[i][j] - 48]++;
+                    nums[board[i][j] - 49]++;
 
-                    if (nums[board[i][j] - 48] > 1) {
+                    if (nums[board[i][j] - 49] > 1) {
                         return false;
                     }
                 }
@@ -43,9 +43,9 @@ public:
             for (short j = 0; j < 9; j++) {
 
                 if (isdigit(board[i][j])) {
-                    nums[board[i][j] - 48]++;
+                    nums[board[i][j] - 49]++;
 
-                    if (nums[board[i][j] - 48] > 1) {
+                    if (nums[board[i][j] - 49] > 1) {
                         return false;
                     }
                 }
@@ -58,9 +58,9 @@ public:
             for (short j = 0; j < 9; j++) {
 
                 if (isdigit(board[j][i])) {
-                    nums[board[j][i] - 48]++;
+                    nums[board[j][i] - 49]++;
 
-                    if (nums[board[j][i] - 48] > 1) {
+                    if (nums[board[j][i] - 49] > 1) {
                         return false;
                     }
 
